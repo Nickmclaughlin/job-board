@@ -1,0 +1,37 @@
+<%= form_for [@user, @posting] do |f| %>
+  <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited
+          your profile from being saved:</h2>
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+  <% end%>
+
+<p>
+  <%= f.label :position %><br>
+  <%= f.text_field :position %>
+</p>
+<p>
+  <%= f.label :type_of %><br>
+  <%= f.text_field :type_of %>
+</p>
+<p>
+  <%= f.label :description %><br>
+  <%= f.text_field :description %>
+</p>
+<p>
+  <%= f.label :benefits %><br>
+  <%= f.text_field :benefits %>
+</p>
+<p>
+  <%= f.label :salary %><br>
+  <%= f.text_field :salary %>
+</p>
+
+<%= f.submit 'Update Profile', class: "button" %>
+
+<% end %>

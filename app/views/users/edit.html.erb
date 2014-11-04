@@ -1,0 +1,63 @@
+<% if @user.role == "Employee" %>
+  Hello
+<% elsif @user.role == "Employer" %>
+  <%= form_for @user do |f| %>
+    <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited
+            your profile from being saved:</h2>
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end%>
+
+  <p>
+    <%= f.label :company %><br>
+    <%= f.text_field :company %>
+  </p>
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </p>
+  <p>
+    <%= f.label :zip %><br>
+    <%= f.text_field :zip %>
+  </p>
+
+  <%= f.submit 'Update Profile', class: "button" %>
+
+  <% end %>
+<% else %>
+  <%= form_for @user do |f| %>
+    <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited
+            your profile from being saved:</h2>
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end%>
+
+  <p>
+    <%= f.label :role %><br>
+    <%= f.select :role, options_for_select(["Employer", "Employee"]) %>
+  </p>
+
+  <%= f.submit 'Update Profile', class: "button" %>
+
+  <% end %>
+<% end %>

@@ -1,0 +1,13 @@
+<%if current_user != nil %>
+
+  <% if current_user.role == "Employer" %>
+    <%= link_to 'Post New Job', new_user_posting_path(current_user) %>
+  <% elsif current_user.role == "Employee"%>
+    Hello
+  <% else %>
+   <%= link_to 'Complete Profile', edit_user_path(current_user) %>
+  <% end %>
+<% else %>
+  <%= link_to 'Sign Up', new_user_registration_path  %>
+  <%= link_to 'Sign In', user_session_path %> <br>
+<% end %>

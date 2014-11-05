@@ -4,6 +4,14 @@ class PostingsController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
+  def index
+    @posting = Posting.all
+  end
+
+  def show
+    @posting = Posting.find(params[:id])
+  end
+
   def create
     @posting = Posting.new(posting_params)
     @posting.employer_id = params[:user_id]

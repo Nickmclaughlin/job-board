@@ -1,0 +1,5 @@
+<ul>
+  <% @posting.each do |job|%>
+    <li><%= link_to job.position, user_posting_path(job.employer, job) %></li>
+  <%end%>
+</ul>

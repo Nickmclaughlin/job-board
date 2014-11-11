@@ -1,7 +1,11 @@
-<%= @posting.position %>
-<%= @posting.description %>
-<%= @posting.type_of %>
-<%= @posting.benefits %>
-<%= @posting.salary %>
+<ul>
+  <li>Position: <%= @posting.position %></li>
+  <li>Description: <%= @posting.description %></li>
+  <li>Level: <%= @posting.type_of %></li>
+  <li>Benefits: <%= @posting.benefits %></li>
+  <li>Salary: <%= @posting.salary %></li>
+</ul>
 
 <%= link_to 'Company Info', user_path(@posting.employer)%>
+
+<%= link_to 'Back', root_path %>

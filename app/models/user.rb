@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :posted_jobs, class_name: "Posting", foreign_key: 'employer_id'
   has_many :applicants
+  has_many :job_applications
 end

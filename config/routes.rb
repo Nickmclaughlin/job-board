@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   resources :users do
     resources :postings do
       resources :applicants
-    end  
+      resources :job_applications
+    end
   end
 
   # Example of regular route:

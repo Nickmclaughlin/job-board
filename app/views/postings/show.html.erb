@@ -6,7 +6,7 @@
   <li>Salary: <%= @posting.salary %></li>
 </ul>
 
-<%= link_to 'Apply' %>
+<%= link_to 'Apply', new_user_posting_job_application_path(current_user, @posting) %>
 
 <%= link_to 'Company Info', user_path(@posting.employer)%>
 
